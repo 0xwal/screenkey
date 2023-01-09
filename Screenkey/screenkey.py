@@ -188,7 +188,7 @@ class Screenkey(Gtk.Window):
         self.make_preferences_dialog()
 
         if not self.options.no_systray:
-            if gi_module_available('AppIndicator3', '0.1'):
+            if gi_module_available('AyatanaAppIndicator3', '0.1'):
                 self.make_appindicator()
             else:
                 self.make_systray()
@@ -992,14 +992,15 @@ class Screenkey(Gtk.Window):
 
 
     def make_appindicator(self):
-        from gi.repository import AppIndicator3 as AppIndicator
-        self.systray = AppIndicator.Indicator.new(
-            APP_NAME, 'indicator-messages', AppIndicator.IndicatorCategory.APPLICATION_STATUS)
-        self.systray.set_status(AppIndicator.IndicatorStatus.ACTIVE)
+        from gi.repository import AyatanaAppIndicator3
+        self.systray = AyatanaAppIndicator3.Indicator.new(
+            APP_NAME, 'indicator-messages',
+            AyatanaAppIndicator3.IndicatorCategory.APPLICATION_STATUS)
+        self.systray.set_status(AyatanaAppIndicator3.IndicatorStatus.ACTIVE)
         self.systray.set_attention_icon("indicator-messages-new")
         self.systray.set_icon("preferences-desktop-keyboard-shortcuts")
         self.systray.set_menu(self.menu)
-        self.logger.debug("Using AppIndicator.")
+        self.logger.debug("Using AyatanaAppIndicator3")
 
     def make_systray(self):
         self.systray = Gtk.StatusIcon()

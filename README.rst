@@ -67,7 +67,7 @@ Dependencies:
 - babel (python3-babel, build only)
 - slop (https://github.com/naelstrof/slop)
 - FontAwesome_ (for multimedia symbols)
-- GIR AppIndicator (only required for Unity / GNOME Shell)
+- GIR AyatanaAppIndicator3 (only required for Unity / GNOME Shell)
 
 Install dependencies (on Debian/Ubuntu)::
 
@@ -78,7 +78,7 @@ Install dependencies (on Debian/Ubuntu)::
 
 When using GNOME also install::
 
-  sudo apt-get install gir1.2-appindicator3-0.1
+  sudo apt-get install gir1.2-ayatanaappindicator3-0.1
 
 Note: Screenkey makes use of low-level X11 functions directly via
 ``libX11.so.6``.
