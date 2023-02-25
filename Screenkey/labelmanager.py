@@ -139,6 +139,15 @@ REPLACE_SYMS = {
     'XF86Favorites':         KeyRepl(True, True, True, [ReplData(_('\uf005'),    'Font Awesome 5 Free', None),
                                                         ReplData(_('\uf005'),    'FontAwesome',         None),
                                                         ReplData(_('🟊'),        None,                  None)]),
+    'XF86HomePage':          KeyRepl(True, True, True, [ReplData(_('\uf015'),    'Font Awesome 5 Free', None),
+                                                        ReplData(_('\uf015'),    'FontAwesome',         None),
+                                                        ReplData(_('⌂🟊'),        None,                  None)]),
+    'XF86Mail':              KeyRepl(True, True, True, [ReplData(_('\uf0e0'),    'Font Awesome 5 Free', None),
+                                                        ReplData(_('\uf0e0'),    'FontAwesome',         None),
+                                                        ReplData(_('📧'),        None,                  None)]),
+    'XF86Calculator':        KeyRepl(True, True, True, [ReplData(_('\uf1ec'),    'Font Awesome 5 Free', None),
+                                                        ReplData(_('\uf1ec'),    'FontAwesome',         None),
+                                                        ReplData(_('🖩'),         None,                  None)]),
 }
 
 WHITESPACE_SYMS = {'Tab', 'ISO_Left_Tab', 'Return', 'space', 'KP_Enter'}
