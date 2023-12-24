@@ -28,7 +28,7 @@ Installation and basic usage
 Official packages
 ~~~~~~~~~~~~~~~~~
 
-Arch: `Arch community package <https://www.archlinux.org/packages/extra/any/screenkey/>`_
+Arch: `Arch package <https://www.archlinux.org/packages/extra/any/screenkey/>`_
   ``sudo pacman -S screenkey``
 
 Debian / Ubuntu: `Debian tracker <https://packages.debian.org/search?searchon=sourcenames&keywords=screenkey>`_
