@@ -117,7 +117,8 @@ class Screenkey(Gtk.Window):
                             'screen': 0,
                             'start_disabled': False,
                             'mouse': False,
-                            'button_hide_duration': 1})
+                            'button_hide_duration': 1,
+                            'privacy_sequence': []})
         self.options = self.load_state()
         if self.options is None:
             self.options = defaults
@@ -513,7 +514,8 @@ class Screenkey(Gtk.Window):
                                       compr_cnt=self.options.compr_cnt,
                                       ignore=self.options.ignore,
                                       pango_ctx=self.label.get_pango_context(),
-                                      enabled=not self.options.start_disabled)
+                                      enabled=not self.options.start_disabled,
+                                      sequence=self.options.privacy_sequence)
         self.labelmngr.start()
 
 

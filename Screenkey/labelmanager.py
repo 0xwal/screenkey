@@ -188,7 +188,7 @@ class LabelManager:
     def __init__(self, label_listener, image_listener, logger, key_mode,
                  bak_mode, mods_mode, mods_only, multiline, vis_shift,
                  vis_space, recent_thr, compr_cnt, ignore, pango_ctx,
-                 enabled):
+                 enabled, sequence):
         self.key_mode = key_mode
         self.bak_mode = bak_mode
         self.mods_mode = mods_mode
@@ -207,6 +207,9 @@ class LabelManager:
         self.kl = None
         self.font_families = {x.get_name() for x in pango_ctx.list_families()}
         self.update_replacement_map()
+        self._items = []
+        self._cursor = 0
+        self._sequence = sequence
 
 
     def __del__(self):
@@ -330,10 +333,8 @@ class LabelManager:
         self.logger.debug("Label updated: %s." % repr(markup))
         self.label_listener(markup, synthetic)
 
-
     def queue_update(self):
         self.update_text(True)
-
 
     def event_handler(self, event):
         if event is None:
@@ -347,6 +348,22 @@ class LabelManager:
             self.btn_press(event)
         else:
             self.logger.error("unhandled event type {}".format(type(event)))
+
+    def _should_handle(self, event):
+        char = event.string
+        index = self._cursor
+
+        for s in self._sequence:
+            if len(s) > index and s[index] == char:
+                self._items.append(event)
+                self._cursor += 1
+                return False
+
+        if self._cursor > 3:
+            self._items = []
+        self._cursor = 0
+        return True
+
 
 
     def key_press(self, event):
@@ -391,9 +408,25 @@ class LabelManager:
         if not self.enabled:
             return False
 
+
+        if not keysym_to_mod(symbol) and not self._should_handle(event):
+            return
+
+        if keysym_to_mod(symbol) and self._cursor > 0:
+            return
+
+        for e in self._items:
+            self.actual_show(e, e.symbol.decode())
+        self.actual_show(event, event.symbol.decode())
+        self._items = []
+
+
+    def actual_show(self, event, symbol):
         # keep the window alive as the user is composing
         mod_pressed = keysym_to_mod(symbol) is not None
         update = len(self.data) and (event.filtered or mod_pressed)
+
+
 
         if not event.filtered:
             if self.key_mode in ['translated', 'composed']:
@@ -404,7 +437,6 @@ class LabelManager:
                 update |= self.key_keysyms_mode(event)
         if update:
             self.update_text()
-
 
     def key_normal_mode(self, event):
         self.logger.debug("key_normal_mode")
