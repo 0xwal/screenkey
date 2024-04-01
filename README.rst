@@ -509,7 +509,7 @@ changed to reflect the newest changes.
 Authors and Copyright
 ---------------------
 
-"screenkey" can be found at https://www.thregr.org/~wavexx/software/screenkey/
+"screenkey" can be found at https://www.thregr.org/wavexx/software/screenkey/
 
 | "screenkey" is distributed under GNU GPLv3+, WITHOUT ANY WARRANTY.
 | Copyright(c) 2010-2012: Pablo Seminario <pabluk@gmail.com>
