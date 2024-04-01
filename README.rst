@@ -28,7 +28,7 @@ Installation and basic usage
 Official packages
 ~~~~~~~~~~~~~~~~~
 
-Arch: `Arch package <https://www.archlinux.org/packages/extra/any/screenkey/>`_
+Arch: `Arch package <https://archlinux.org/packages/extra/any/screenkey/>`_
   ``sudo pacman -S screenkey``
 
 Debian / Ubuntu: `Debian tracker <https://packages.debian.org/search?searchon=sourcenames&keywords=screenkey>`_
@@ -315,8 +315,8 @@ Related tools
 
 When doing screencasts involving a lot of mouse activity, or which
 require holding down modifiers to perform other mouse actions, key-mon_
-(Python-based) or the newer kmcaster_ (Java-based) might be a good
-companion to screenkey, or replace it entirely.
+(also Python-based) might be a good companion to screenkey, or replace
+it entirely.
 
 Both can be configured to show the state of key modifiers continuously
 and circle the location of mouse clicks ("visible click") and can be
@@ -543,8 +543,7 @@ Additional Thanks
 * Ziad El Khoury Hanna
 * 伊冲
 
-.. _Screenflick: http://www.araelium.com/screenflick/
-.. _key-mon: https://code.google.com/p/key-mon/
-.. _kmcaster: https://github.com/DaveJarvis/kmcaster/
+.. _Screenflick: https://www.araelium.com/screenflick-mac-screen-recorder
+.. _key-mon: https://github.com/scottkirkwood/key-mon
 .. _screenkey: https://launchpad.net/screenkey
 .. _slop: https://github.com/naelstrof/slop
