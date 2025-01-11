@@ -553,6 +553,7 @@ class Screenkey(Gtk.Window):
                                         resizable=False)
         prefs.connect("response", self.on_preferences_changed)
         prefs.connect("delete-event", self.on_preferences_changed)
+        prefs.set_icon_name("preferences-desktop-keyboard-shortcuts")
 
         def on_sb_time_changed(widget, data=None):
             self.options.timeout = widget.get_value()
